@@ -1,72 +1,76 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Celebrity Access • Book Your Favorite Stars</title>
+  <title>Celebrity Access • Book Your Favorites</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #0f0f0f; color: #ffffff; min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a192f; color: #e0f2f1; line-height: 1.6; min-height: 100vh;
     }
     header {
-      background: linear-gradient(to bottom, #1a1a1a, #0f0f0f);
-      padding: 20px; text-align: center; border-bottom: 1px solid #333;
+      background: linear-gradient(to bottom, #0f2a4d, #0a192f);
+      padding: 2.5rem 1rem; text-align: center; border-bottom: 1px solid #2a4d69;
     }
-    h1 { font-size: 2.5rem; margin-bottom: 8px; }
-    .subtitle { color: #bbb; font-size: 1.1rem; }
+    h1 { font-size: 2.8rem; margin-bottom: 0.5rem; color: #a5f3fc; }
+    .subtitle { font-size: 1.2rem; color: #94a3b8; }
     .container {
-      max-width: 1200px; margin: 30px auto; padding: 0 15px;
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px;
+      max-width: 1300px; margin: 3rem auto; padding: 0 1.5rem;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2rem;
     }
     .card {
-      background: #1a1a1a; border-radius: 16px; overflow: hidden; border: 1px solid #333;
-      transition: transform 0.25s, box-shadow 0.25s; text-decoration: none; color: inherit; display: block;
+      background: #13294b; border-radius: 1.2rem; overflow: hidden; border: 1px solid #2a4d69;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4); transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none; color: inherit; display: block;
     }
-    .card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
-    .card-img { width: 100%; height: 380px; object-fit: cover; object-position: top; }
-    .card-content { padding: 20px; }
-    .name { font-size: 1.6rem; margin-bottom: 8px; }
-    .info { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; color: #ccc; font-size: 1rem; }
+    .card:hover { transform: translateY(-10px); box-shadow: 0 16px 40px rgba(0,0,0,0.5); }
+    .card-img { width: 100%; height: 400px; object-fit: cover; object-position: top; }
+    .card-content { padding: 1.8rem; }
+    .name { font-size: 1.8rem; margin-bottom: 0.6rem; color: #a5f3fc; }
+    .info { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem; font-size: 1.1rem; color: #94a3b8; }
     .rating { color: #ffd700; font-weight: bold; }
-    .price { font-size: 1.4rem; font-weight: bold; color: #00ff9d; margin: 12px 0 4px; }
-    .fan-price { font-size: 1.1rem; color: #ff9500; margin-bottom: 8px; }
-    .meet-price { font-size: 1.1rem; color: #c300ff; margin-bottom: 16px; }
-    .buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+    .price-section { margin: 1rem 0; font-size: 1.3rem; }
+    .price { color: #5eead4; font-weight: bold; }
+    .meet-price { color: #c084fc; }
+    .fan-price { color: #fb923c; }
+    .buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
     .btn {
-      flex: 1; min-width: 110px; padding: 12px; border: none; border-radius: 10px;
-      font-size: 1rem; font-weight: bold; cursor: pointer; transition: 0.2s; text-align: center;
+      padding: 1rem; border: none; border-radius: 0.8rem; font-size: 1.1rem; font-weight: 600;
+      cursor: pointer; transition: background 0.3s, transform 0.2s; text-align: center;
     }
-    .btn-book { background: #0066ff; color: white; }
-    .btn-book:hover { background: #0055dd; }
-    .btn-meet { background: #9d00ff; color: white; }
-    .btn-meet:hover { background: #7d00cc; }
-    .btn-fan { background: #ff4d4d; color: white; }
-    .btn-fan:hover { background: #e03e3e; }
-    .btn-donate { background: #ff9500; color: white; }
-    .btn-donate:hover { background: #e08500; }
+    .btn-book { background: #0ea5e9; color: white; }
+    .btn-book:hover { background: #0284c7; transform: scale(1.02); }
+    .btn-meet { background: #8b5cf6; color: white; }
+    .btn-meet:hover { background: #7c3aed; transform: scale(1.02); }
+    .btn-fan { background: #f97316; color: white; }
+    .btn-fan:hover { background: #ea580c; transform: scale(1.02); }
+    .btn-donate { background: #64748b; color: white; grid-column: span 2; }
+    .btn-donate:hover { background: #475569; transform: scale(1.02); }
   </style>
 </head>
 <body>
 
   <header>
     <h1>Celebrity Access</h1>
-    <p class="subtitle">Book meetings, Meet & Greets or get Fan Cards • All via Telegram</p>
+    <p class="subtitle">Book meetings, Meet & Greets, or get Fan Cards • All via Telegram</p>
   </header>
 
   <div class="container">
 
-    <!-- Existing ones (shortened for brevity - keep your previous or add more) -->
-    <!-- Leonardo DiCaprio example -->
+    <!-- Leonardo DiCaprio -->
     <a href="https://t.me/Celebrity_order" target="_blank" class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Leonardo_DiCaprio_Cannes_2019.jpg" alt="Leonardo DiCaprio" class="card-img">
+      <img src="https://static.wikia.nocookie.net/inception/images/0/06/Leonardo_dicaprio.jpg/revision/latest?cb=20250429025458" alt="Leonardo DiCaprio" class="card-img">
       <div class="card-content">
         <h2 class="name">Leonardo DiCaprio</h2>
-        <div class="info"><span class="rating">★ 4.9</span><span>• United States</span></div>
-        <div class="price">Book Now: $25,000</div>
-        <div class="meet-price">Meet & Greet: $5,000</div>
-        <div class="fan-price">Fan Card: $500</div>
+        <div class="info"><span class="rating">★ 4.9</span> • United States</div>
+        <div class="price-section">
+          <div class="price">Book Now: $25,000</div>
+          <div class="meet-price">Meet & Greet: $5,000</div>
+          <div class="fan-price">Fan Card: $500</div>
+        </div>
         <div class="buttons">
           <button class="btn btn-book">Book Now</button>
           <button class="btn btn-meet">Meet & Greet</button>
@@ -76,15 +80,17 @@
       </div>
     </a>
 
-    <!-- Café Quijano (Spanish three brothers) -->
+    <!-- Café Quijano -->
     <a href="https://t.me/Celebrity_order" target="_blank" class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Caf%C3%A9_Quijano_en_concierto.jpg/800px-Caf%C3%A9_Quijano_en_concierto.jpg" alt="Café Quijano" class="card-img">
+      <img src="https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2018/11/05/15414225402701.jpg" alt="Café Quijano" class="card-img">
       <div class="card-content">
         <h2 class="name">Café Quijano</h2>
-        <div class="info"><span class="rating">★ 4.7</span><span>• Spain</span></div>
-        <div class="price">Book Now: $18,000</div>
-        <div class="meet-price">Meet & Greet: $3,500</div>
-        <div class="fan-price">Fan Card: $400</div>
+        <div class="info"><span class="rating">★ 4.7</span> • Spain</div>
+        <div class="price-section">
+          <div class="price">Book Now: $18,000</div>
+          <div class="meet-price">Meet & Greet: $3,500</div>
+          <div class="fan-price">Fan Card: $400</div>
+        </div>
         <div class="buttons">
           <button class="btn btn-book">Book Now</button>
           <button class="btn btn-meet">Meet & Greet</button>
@@ -94,15 +100,17 @@
       </div>
     </a>
 
-    <!-- André Rieu (violin) -->
+    <!-- André Rieu -->
     <a href="https://t.me/Celebrity_order" target="_blank" class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Andr%C3%A9_Rieu_2018.jpg/800px-Andr%C3%A9_Rieu_2018.jpg" alt="André Rieu" class="card-img">
+      <img src="https://ssearenabelfast.s3.amazonaws.com/_1114x628_fit_center-center_none/250749/AndreRieu_Belfast_1600x900px_CLEAN-1.webp" alt="André Rieu" class="card-img">
       <div class="card-content">
         <h2 class="name">André Rieu</h2>
-        <div class="info"><span class="rating">★ 4.9</span><span>• Netherlands</span></div>
-        <div class="price">Book Now: $30,000</div>
-        <div class="meet-price">Meet & Greet: $6,000</div>
-        <div class="fan-price">Fan Card: $600</div>
+        <div class="info"><span class="rating">★ 4.9</span> • Netherlands</div>
+        <div class="price-section">
+          <div class="price">Book Now: $30,000</div>
+          <div class="meet-price">Meet & Greet: $6,000</div>
+          <div class="fan-price">Fan Card: $600</div>
+        </div>
         <div class="buttons">
           <button class="btn btn-book">Book Now</button>
           <button class="btn btn-meet">Meet & Greet</button>
@@ -114,13 +122,15 @@
 
     <!-- Emma Kok -->
     <a href="https://t.me/Celebrity_order" target="_blank" class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Emma_Kok_in_2024.jpg/800px-Emma_Kok_in_2024.jpg" alt="Emma Kok" class="card-img"> <!-- Use a real one if better found -->
+      <img src="https://prod-img.limburger.nl/public/ece-incoming/y88k62-emma-kok-concertgebouw-20251021-00881.jpg/alternates/BASE_ONE_ONE/Emma_Kok_Concertgebouw_20251021_00881.jpg" alt="Emma Kok" class="card-img">
       <div class="card-content">
         <h2 class="name">Emma Kok</h2>
-        <div class="info"><span class="rating">★ 4.8</span><span>• Netherlands</span></div>
-        <div class="price">Book Now: $15,000</div>
-        <div class="meet-price">Meet & Greet: $3,000</div>
-        <div class="fan-price">Fan Card: $350</div>
+        <div class="info"><span class="rating">★ 4.8</span> • Netherlands</div>
+        <div class="price-section">
+          <div class="price">Book Now: $15,000</div>
+          <div class="meet-price">Meet & Greet: $3,000</div>
+          <div class="fan-price">Fan Card: $350</div>
+        </div>
         <div class="buttons">
           <button class="btn btn-book">Book Now</button>
           <button class="btn btn-meet">Meet & Greet</button>
@@ -130,15 +140,17 @@
       </div>
     </a>
 
-    <!-- German: Rammstein -->
+    <!-- Estoriore Brothers -->
     <a href="https://t.me/Celebrity_order" target="_blank" class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Rammstein_in_Paris_III.jpg/800px-Rammstein_in_Paris_III.jpg" alt="Rammstein" class="card-img">
+      <img src="https://images.universal-music.de/img/assets/585/585402/195/fotojpg.jpg" alt="Estoriore Brothers" class="card-img">
       <div class="card-content">
-        <h2 class="name">Rammstein</h2>
-        <div class="info"><span class="rating">★ 4.9</span><span>• Germany</span></div>
-        <div class="price">Book Now: $40,000</div>
-        <div class="meet-price">Meet & Greet: $8,000</div>
-        <div class="fan-price">Fan Card: $800</div>
+        <h2 class="name">Estoriore Brothers</h2>
+        <div class="info"><span class="rating">★ 4.6</span> • Italy/Spain</div>
+        <div class="price-section">
+          <div class="price">Book Now: $20,000</div>
+          <div class="meet-price">Meet & Greet: $4,000</div>
+          <div class="fan-price">Fan Card: $450</div>
+        </div>
         <div class="buttons">
           <button class="btn btn-book">Book Now</button>
           <button class="btn btn-meet">Meet & Greet</button>
@@ -148,15 +160,17 @@
       </div>
     </a>
 
-    <!-- Scorpions -->
+    <!-- Randall King Band -->
     <a href="https://t.me/Celebrity_order" target="_blank" class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/ScorpionsLive2014.jpg/800px-ScorpionsLive2014.jpg" alt="Scorpions" class="card-img">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX92blviKDKN41Z5OEzmoosMnEv7VkVu4g8GuHgac2NQ&s=10" alt="Randall King Band" class="card-img">
       <div class="card-content">
-        <h2 class="name">Scorpions</h2>
-        <div class="info"><span class="rating">★ 4.9</span><span>• Germany</span></div>
-        <div class="price">Book Now: $35,000</div>
-        <div class="meet-price">Meet & Greet: $7,000</div>
-        <div class="fan-price">Fan Card: $700</div>
+        <h2 class="name">Randall King Band</h2>
+        <div class="info"><span class="rating">★ 4.7</span> • United States</div>
+        <div class="price-section">
+          <div class="price">Book Now: $16,000</div>
+          <div class="meet-price">Meet & Greet: $3,200</div>
+          <div class="fan-price">Fan Card: $380</div>
+        </div>
         <div class="buttons">
           <button class="btn btn-book">Book Now</button>
           <button class="btn btn-meet">Meet & Greet</button>
@@ -166,15 +180,17 @@
       </div>
     </a>
 
-    <!-- Kontra K -->
+    <!-- Breaking Benjamin -->
     <a href="https://t.me/Celebrity_order" target="_blank" class="card">
-      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800" alt="Kontra K" class="card-img"> <!-- Placeholder; replace with real -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Breaking_Benjamin_-_Rock_am_Ring_2016_-2016155170151_2016-06-03_Rock_am_Ring_-_Sven_-_5DS_R_-_0039_-_5DSR5800_mod.jpg" alt="Breaking Benjamin" class="card-img">
       <div class="card-content">
-        <h2 class="name">Kontra K</h2>
-        <div class="info"><span class="rating">★ 4.7</span><span>• Germany</span></div>
-        <div class="price">Book Now: $22,000</div>
-        <div class="meet-price">Meet & Greet: $4,500</div>
-        <div class="fan-price">Fan Card: $450</div>
+        <h2 class="name">Breaking Benjamin</h2>
+        <div class="info"><span class="rating">★ 4.8</span> • United States</div>
+        <div class="price-section">
+          <div class="price">Book Now: $22,000</div>
+          <div class="meet-price">Meet & Greet: $4,500</div>
+          <div class="fan-price">Fan Card: $450</div>
+        </div>
         <div class="buttons">
           <button class="btn btn-book">Book Now</button>
           <button class="btn btn-meet">Meet & Greet</button>
@@ -184,15 +200,17 @@
       </div>
     </a>
 
-    <!-- Ayliva -->
+    <!-- Machine Head -->
     <a href="https://t.me/Celebrity_order" target="_blank" class="card">
-      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800" alt="Ayliva" class="card-img"> <!-- Placeholder -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Machine_Head_en_concert_%C3%A0_La_Rochelle_en_2018_%28cropped%29.jpg" alt="Machine Head" class="card-img">
       <div class="card-content">
-        <h2 class="name">Ayliva</h2>
-        <div class="info"><span class="rating">★ 4.8</span><span>• Germany</span></div>
-        <div class="price">Book Now: $20,000</div>
-        <div class="meet-price">Meet & Greet: $4,000</div>
-        <div class="fan-price">Fan Card: $400</div>
+        <h2 class="name">Machine Head</h2>
+        <div class="info"><span class="rating">★ 4.8</span> • United States</div>
+        <div class="price-section">
+          <div class="price">Book Now: $20,000</div>
+          <div class="meet-price">Meet & Greet: $4,000</div>
+          <div class="fan-price">Fan Card: $400</div>
+        </div>
         <div class="buttons">
           <button class="btn btn-book">Book Now</button>
           <button class="btn btn-meet">Meet & Greet</button>
@@ -202,13 +220,211 @@
       </div>
     </a>
 
-    <!-- Add more Germans or others similarly: Shirin David, Sido, Ski Aggu, etc. Copy-paste blocks and adjust names/images/prices -->
+    <!-- System of a Down -->
+    <a href="https://t.me/Celebrity_order" target="_blank" class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/SoaD2011-2.jpg" alt="System of a Down" class="card-img">
+      <div class="card-content">
+        <h2 class="name">System of a Down</h2>
+        <div class="info"><span class="rating">★ 4.9</span> • United States</div>
+        <div class="price-section">
+          <div class="price">Book Now: $28,000</div>
+          <div class="meet-price">Meet & Greet: $5,500</div>
+          <div class="fan-price">Fan Card: $550</div>
+        </div>
+        <div class="buttons">
+          <button class="btn btn-book">Book Now</button>
+          <button class="btn btn-meet">Meet & Greet</button>
+          <button class="btn btn-fan">Get Fan Card</button>
+          <button class="btn btn-donate">Donate</button>
+        </div>
+      </div>
+    </a>
+
+    <!-- Trace Adkins -->
+    <a href="https://t.me/Celebrity_order" target="_blank" class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Trace_Adkins_2014.jpg" alt="Trace Adkins" class="card-img">
+      <div class="card-content">
+        <h2 class="name">Trace Adkins</h2>
+        <div class="info"><span class="rating">★ 4.8</span> • United States</div>
+        <div class="price-section">
+          <div class="price">Book Now: $22,000</div>
+          <div class="meet-price">Meet & Greet: $4,500</div>
+          <div class="fan-price">Fan Card: $450</div>
+        </div>
+        <div class="buttons">
+          <button class="btn btn-book">Book Now</button>
+          <button class="btn btn-meet">Meet & Greet</button>
+          <button class="btn btn-fan">Get Fan Card</button>
+          <button class="btn btn-donate">Donate</button>
+        </div>
+      </div>
+    </a>
+
+    <!-- Midland -->
+    <a href="https://t.me/Celebrity_order" target="_blank" class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Midland_%28band%29_2018.jpg/800px-Midland_%28band%29_2018.jpg" alt="Midland" class="card-img">
+      <div class="card-content">
+        <h2 class="name">Midland</h2>
+        <div class="info"><span class="rating">★ 4.7</span> • United States</div>
+        <div class="price-section">
+          <div class="price">Book Now: $18,000</div>
+          <div class="meet-price">Meet & Greet: $3,800</div>
+          <div class="fan-price">Fan Card: $400</div>
+        </div>
+        <div class="buttons">
+          <button class="btn btn-book">Book Now</button>
+          <button class="btn btn-meet">Meet & Greet</button>
+          <button class="btn btn-fan">Get Fan Card</button>
+          <button class="btn btn-donate">Donate</button>
+        </div>
+      </div>
+    </a>
+
+    <!-- Charley Crockett -->
+    <a href="https://t.me/Celebrity_order" target="_blank" class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Charley_Crockett_2023.jpg/800px-Charley_Crockett_2023.jpg" alt="Charley Crockett" class="card-img">
+      <div class="card-content">
+        <h2 class="name">Charley Crockett</h2>
+        <div class="info"><span class="rating">★ 4.8</span> • United States</div>
+        <div class="price-section">
+          <div class="price">Book Now: $20,000</div>
+          <div class="meet-price">Meet & Greet: $4,000</div>
+          <div class="fan-price">Fan Card: $420</div>
+        </div>
+        <div class="buttons">
+          <button class="btn btn-book">Book Now</button>
+          <button class="btn btn-meet">Meet & Greet</button>
+          <button class="btn btn-fan">Get Fan Card</button>
+          <button class="btn btn-donate">Donate</button>
+        </div>
+      </div>
+    </a>
+
+    <!-- Spencer Hatcher -->
+    <a href="https://t.me/Celebrity_order" target="_blank" class="card">
+      <img src="https://spencerhatchermusic.com/cdn/shop/files/Spencer_Hatcher_Headshot_2024.jpg?v=1720000000" alt="Spencer Hatcher" class="card-img">
+      <div class="card-content">
+        <h2 class="name">Spencer Hatcher</h2>
+        <div class="info"><span class="rating">★ 4.6</span> • United States</div>
+        <div class="price-section">
+          <div class="price">Book Now: $15,000</div>
+          <div class="meet-price">Meet & Greet: $3,000</div>
+          <div class="fan-price">Fan Card: $350</div>
+        </div>
+        <div class="buttons">
+          <button class="btn btn-book">Book Now</button>
+          <button class="btn btn-meet">Meet & Greet</button>
+          <button class="btn btn-fan">Get Fan Card</button>
+          <button class="btn btn-donate">Donate</button>
+        </div>
+      </div>
+    </a>
+
+    <!-- The Red Clay Strays -->
+    <a href="https://t.me/Celebrity_order" target="_blank" class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Red_Clay_Strays_2024.jpg/800px-Red_Clay_Strays_2024.jpg" alt="The Red Clay Strays" class="card-img">
+      <div class="card-content">
+        <h2 class="name">The Red Clay Strays</h2>
+        <div class="info"><span class="rating">★ 4.8</span> • United States</div>
+        <div class="price-section">
+          <div class="price">Book Now: $19,000</div>
+          <div class="meet-price">Meet & Greet: $3,900</div>
+          <div class="fan-price">Fan Card: $410</div>
+        </div>
+        <div class="buttons">
+          <button class="btn btn-book">Book Now</button>
+          <button class="btn btn-meet">Meet & Greet</button>
+          <button class="btn btn-fan">Get Fan Card</button>
+          <button class="btn btn-donate">Donate</button>
+        </div>
+      </div>
+    </a>
+
+    <!-- Zach Top -->
+    <a href="https://t.me/Celebrity_order" target="_blank" class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Zach_Top_2024.jpg/800px-Zach_Top_2024.jpg" alt="Zach Top" class="card-img">
+      <div class="card-content">
+        <h2 class="name">Zach Top</h2>
+        <div class="info"><span class="rating">★ 4.7</span> • United States</div>
+        <div class="price-section">
+          <div class="price">Book Now: $16,000</div>
+          <div class="meet-price">Meet & Greet: $3,200</div>
+          <div class="fan-price">Fan Card: $380</div>
+        </div>
+        <div class="buttons">
+          <button class="btn btn-book">Book Now</button>
+          <button class="btn btn-meet">Meet & Greet</button>
+          <button class="btn btn-fan">Get Fan Card</button>
+          <button class="btn btn-donate">Donate</button>
+        </div>
+      </div>
+    </a>
+
+    <!-- Cody Johnson -->
+    <a href="https://t.me/Celebrity_order" target="_blank" class="card">
+      <img src="https://commons.wikimedia.org/wiki/File:Cody_Johnson_in_2024.png" alt="Cody Johnson" class="card-img">
+      <div class="card-content">
+        <h2 class="name">Cody Johnson</h2>
+        <div class="info"><span class="rating">★ 4.8</span> • United States</div>
+        <div class="price-section">
+          <div class="price">Book Now: $24,000</div>
+          <div class="meet-price">Meet & Greet: $4,800</div>
+          <div class="fan-price">Fan Card: $480</div>
+        </div>
+        <div class="buttons">
+          <button class="btn btn-book">Book Now</button>
+          <button class="btn btn-meet">Meet & Greet</button>
+          <button class="btn btn-fan">Get Fan Card</button>
+          <button class="btn btn-donate">Donate</button>
+        </div>
+      </div>
+    </a>
+
+    <!-- Lainey Wilson -->
+    <a href="https://t.me/Celebrity_order" target="_blank" class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Lainey_Wilson_at_the_2023_American_Music_Awards.png/800px-Lainey_Wilson_at_the_2023_American_Music_Awards.png" alt="Lainey Wilson" class="card-img">
+      <div class="card-content">
+        <h2 class="name">Lainey Wilson</h2>
+        <div class="info"><span class="rating">★ 4.8</span> • United States</div>
+        <div class="price-section">
+          <div class="price">Book Now: $22,000</div>
+          <div class="meet-price">Meet & Greet: $4,400</div>
+          <div class="fan-price">Fan Card: $440</div>
+        </div>
+        <div class="buttons">
+          <button class="btn btn-book">Book Now</button>
+          <button class="btn btn-meet">Meet & Greet</button>
+          <button class="btn btn-fan">Get Fan Card</button>
+          <button class="btn btn-donate">Donate</button>
+        </div>
+      </div>
+    </a>
+
+    <!-- George Strait -->
+    <a href="https://t.me/Celebrity_order" target="_blank" class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/George_Strait_2014.jpg/800px-George_Strait_2014.jpg" alt="George Strait" class="card-img">
+      <div class="card-content">
+        <h2 class="name">George Strait</h2>
+        <div class="info"><span class="rating">★ 4.9</span> • United States</div>
+        <div class="price-section">
+          <div class="price">Book Now: $35,000</div>
+          <div class="meet-price">Meet & Greet: $7,000</div>
+          <div class="fan-price">Fan Card: $700</div>
+        </div>
+        <div class="buttons">
+          <button class="btn btn-book">Book Now</button>
+          <button class="btn btn-meet">Meet & Greet</button>
+          <button class="btn btn-fan">Get Fan Card</button>
+          <button class="btn btn-donate">Donate</button>
+        </div>
+      </div>
+    </a>
 
   </div>
 
   <script>
     document.querySelectorAll('.card').forEach(card => {
-      card.addEventListener('click', (e) => {
+      card.addEventListener('click', e => {
         if (!e.target.closest('button')) {
           window.open(card.getAttribute('href'), '_blank');
         }
@@ -217,4 +433,4 @@
   </script>
 
 </body>
-  </html>
+</html>
